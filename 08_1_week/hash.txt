@@ -1,0 +1,33 @@
+# 프로그래머스 완주하지 못한 선수
+* https://school.programmers.co.kr/learn/courses/30/lessons/42576
+* 풀이1 : Collections.Counter 함수
+import collections
+
+def solution(participant, completion):
+    answer = collections.Counter(participant) - collections.Counter(completion)
+    return list(answer.keys())[0]
+* 풀이2 : Zip 함수
+def solution(participant, completion):
+    participant.sort()
+    completion.sort()
+    for p, c in zip(participant, completion):
+        if p != c:
+            return p
+    return participant[-1]
+
+
+# 프로그래머스 폰켓몬
+* https://school.programmers.co.kr/learn/courses/30/lessons/1845
+def solution(nums):
+    answer = 0
+    # nums / 2의 개수만큼 포켓몬 선택
+    N = len(nums) // 2
+    temp = set(nums)
+    if len(temp) >= N:
+        answer = N
+    else:
+        answer = len(temp)
+    # 서로 다른 종류의 포켓몬을 선택할 수 있는 방법
+    # return 최댓값
+
+    return answer
